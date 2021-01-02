@@ -14,14 +14,14 @@ public class ProcessingChallengeOOPS extends PApplet {
         PApplet.main("ProcessingChallengeOOPS", args);
     }
 
-    float[][] circle = {{1.0f, 1.0f / 5}, {2.0f, 2.0f / 5}, {3.0f, 3.0f / 5}, {4.0f, 4.0f / 5}};
+    float[][] input = {{1.0f, 1.0f / 5}, {2.0f, 2.0f / 5}, {3.0f, 3.0f / 5}, {4.0f, 4.0f / 5}};
 
     List<MovingCircle> movingCircles;
 
     @Override
     public void settings() {
         size(WIDTH, HEIGHT);
-        movingCircles = Stream.of(circle).map(x -> new MovingCircle(x[0], x[1])).collect(Collectors.toList());
+        movingCircles = Stream.of(input).map(x -> new MovingCircle(x[0], x[1])).collect(Collectors.toList());
     }
 
     @Override
