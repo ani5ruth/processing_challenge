@@ -1,8 +1,5 @@
 import processing.core.PApplet;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class ProcessingChallengeProcedural extends PApplet {
 
     public static final int WIDTH = 640;
