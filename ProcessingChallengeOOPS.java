@@ -16,37 +16,17 @@ public class ProcessingChallengeOOPS extends PApplet {
 
     float[][] input = {{1.0f, 1.0f / 5}, {2.0f, 2.0f / 5}, {3.0f, 3.0f / 5}, {4.0f, 4.0f / 5}};
 
-    List<MovingCircle> movingCircles;
+    List<Shape> balls;
 
     @Override
     public void settings() {
         size(WIDTH, HEIGHT);
-        movingCircles = Stream.of(input).map(x -> new MovingCircle(x[0], x[1])).collect(Collectors.toList());
+        balls = Stream.of(input).map(ball -> new Ball(ball[0], ball[1])).collect(Collectors.toList());
     }
 
     @Override
     public void draw() {
-        movingCircles.forEach(MovingCircle::drawMovingCircle);
-    }
-
-    private void drawCircle(float xAxis, float yAxis) {
-        ellipse(xAxis, yAxis, DIAMETER, DIAMETER);
-    }
-
-    private class MovingCircle {
-        private float xAxis;
-        private final float yAxis;
-        private final float speed;
-
-        public MovingCircle(float speed, float yAxisOffset) {
-            this.xAxis = 0;
-            this.yAxis = yAxisOffset * HEIGHT;
-            this.speed = speed;
-        }
-
-        public void drawMovingCircle() {
-            drawCircle(xAxis, yAxis);
-            this.xAxis += speed;
-        }
+        balls.forEach(ball -> ball.draw(this));
+        balls.forEach(Shape::move);
     }
 }
