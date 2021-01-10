@@ -1,5 +1,6 @@
 import processing.core.PApplet;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProcessingChallengeOOPS extends PApplet {
@@ -17,11 +18,12 @@ public class ProcessingChallengeOOPS extends PApplet {
     @Override
     public void settings() {
         size(WIDTH, HEIGHT);
-        balls.add(new Ball(1, 1.0f/5));
-        balls.add(new Ball(2, 2.0f/5));
-        balls.add(new Ball(3, 3.0f/5));
-        balls.add(new Ball(4, 4.0f/5));
 
+        balls = new ArrayList<>();
+        balls.add(new Ball(1.0f, 1.0f/5 * HEIGHT));
+        balls.add(new Ball(2.0f, 2.0f/5 * HEIGHT));
+        balls.add(new Ball(3.0f, 3.0f/5 * HEIGHT));
+        balls.add(new Ball(4.0f, 4.0f/5 * HEIGHT));
     }
 
     @Override
